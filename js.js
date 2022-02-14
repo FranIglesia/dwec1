@@ -35,11 +35,11 @@ window.addEventListener('DOMContentLoaded', () => {
         else {
             document.querySelector('#contra').classList.remove("incorrecto");
             document.querySelector('#contra').classList.add("correcto");
-            var fecha = new Date;
-            fecha.setDate(fecha.getDate() + 365);
-            document.cookie = `password=${p};expires=${fecha.toUTCString()}`;
-            sessionStorage.setItem('password', p);
-            localStorage.setItem('plocal', p)
+            // var fecha = new Date;
+            // fecha.setDate(fecha.getDate() + 365);
+            // document.cookie = `password=${p};expires=${fecha.toUTCString()}`;
+            // sessionStorage.setItem('password', p);
+            // localStorage.setItem('plocal', p)
         }
 
         if (!document.getElementById("email").checkValidity() ) {
