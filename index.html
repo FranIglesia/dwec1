@@ -1,13 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="js.js"></script>
+    <style>
+        .incorrecto {
+            color: red;
+            border: 1px solid red;
+        }
+
+        .correcto {
+            color: green;
+            border: default;
+        }
+    </style>
+     <script src="js.js"></script>
+
 </head>
+
 <body>
-    
+    <form>
+        <input type="email" name="email" id="email" required title="email" placeholder="Escribe tu email" pattern="[a-zA-Z0-9_]+([.][ a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.]["
+        maxlength="20"><br>
+        <input type="text" id="contra">
+        <input type="text" id="contra2">
+
+        <button type="button">Validar</button>
+    </form>
+    <ul>
+        <li>Mayúscula</li>
+        <li>Minúscula</li>
+        <li>Dígito</li>
+        <li>Especial #?!@$%^&*-</li>
+        <li>8 caracteres o más</li>
+    </ul>
+    <div></div>
 </body>
+
 </html>
