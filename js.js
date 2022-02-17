@@ -35,16 +35,34 @@ window.addEventListener('DOMContentLoaded', () => {
         else {
             document.querySelector('#contra').classList.remove("incorrecto");
             document.querySelector('#contra').classList.add("correcto");
-            // var fecha = new Date;
-            // fecha.setDate(fecha.getDate() + 365);
-            // document.cookie = `password=${p};expires=${fecha.toUTCString()}`;
-            // sessionStorage.setItem('password', p);
-            // localStorage.setItem('plocal', p)
+       
         }
 
         if (!document.getElementById("email").checkValidity() ) {
             alert("email no correcto");
         }
+        function notificar(msg) {
+            Notification.requestPermission().then(function (permission) {
+                if (permission === "granted") {//permiso positivo(granted) se crea una notificacion
+                    let notification = new Notification(document.title, {//titulo de la notificación
+                        body: `No puedes ${msg} \n ${String.fromCodePoint(0x1F62D)}`,//body de la notificación
+                        icon: "favicon.ico"
+                     
+                    });
+                } else {
+                    alert(`No puedes ${msg} \n ${String.fromCodePoint(0x1F62D)}`)
+                }
+            });
+        }
+        function quitarevt(evt) {
+            evt.preventDefault();
+            notificar(evt.type);
+        }
+
+        document.querySelectorAll('#contra, #contra2').forEach(e => {
+            e.addEventListener("copy", quitarevt);
+            e.addEventListener("paste", quitarevt);
+        });
         const email = document.getElementById("email").value;
         const contra = document.getElementById("contra").value;
         const contra2 = document.getElementById("contra2").value;
