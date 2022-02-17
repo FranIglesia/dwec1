@@ -1,5 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
-    document.querySelector('button').addEventListener("click", () => {
+    document.querySelector('#contra').addEventListener("input", () => {// ponemos input pq esta a la escucha cada vez que presionamos para meter
+        // una tecla en el campo contra (primer dato del formulario) ya que click seria al darle a comprobar
 
         const letramay = new RegExp("(?=.*?[A-Z])");
         const letramin = new RegExp("(?=.*?[a-z])");
@@ -44,7 +45,7 @@ window.addEventListener('DOMContentLoaded', () => {
         function notificar(msg) {
             Notification.requestPermission().then(function (permission) {
                 if (permission === "granted") {//permiso positivo(granted) se crea una notificacion
-                    let notification = new Notification(document.title, {//titulo de la notificación
+                    let notification = new Notification("ATENCIÓN", {//titulo de la notificación
                         body: `No puedes ${msg} \n ${String.fromCodePoint(0x1F62D)}`,//body de la notificación
                         icon: "favicon.ico"
                      
@@ -63,9 +64,14 @@ window.addEventListener('DOMContentLoaded', () => {
             e.addEventListener("copy", quitarevt);
             e.addEventListener("paste", quitarevt);
         });
-        const email = document.getElementById("email").value;
-        const contra = document.getElementById("contra").value;
-        const contra2 = document.getElementById("contra2").value;
-        alert(`nombre: ${email} email: ${contra} año: ${contra2}`)
+        
     });
+    document.querySelector('button').addEventListener("click", () => {
+         const email = document.getElementById("email").value;
+         const contra = document.getElementById("contra").value;
+         const contra2 = document.getElementById("contra2").value;
+         alert(`nombre: ${email} email: ${contra} año: ${contra2}`)
+
+    });
+
 });
